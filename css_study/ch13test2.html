@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 10px;
+            
+        }
+        .box { 
+            display: flex;
+            border: 1px solid white;
+            background-color: rgb(39, 39, 39);
+            justify-content: flex-start;
+            align-content: flex-start;
+            width: 350px;
+            height:30px;
+            color: white;
+        }
+        .box div {
+            display: flex;
+            justify-content: center;
+            align-items: center;            
+        }
+        div:nth-of-type(2n) {
+            background-color: gray;           
+        }
+        .btn1 {
+            background-color: yellow;
+        } 
+        .btn2 {
+            background-color: skyblue;
+        }        
+        .btn3 {
+            background-color: navy;
+        }
+        .btn4 {
+            background-color: darkcyan;
+        }
+        .btn5 {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <div>Language</div>
+    </div>
+    <div class="box">
+        <div>
+            <button class="btn1">JavaScript</button>
+            <button class="btn2">TypeScript</button>
+            <button class="btn3">C++</button>
+            <button class="btn4">Java</button>
+            <button class="btn5">Python</button>
+        </div>
+    </div>
+    <div class="box">
+        <div>Web Front-End</div>
+    </div>
+    <div class="box">
+        <div>
+            <button class="btn">React</button>
+            <button class="btn">Vue.js</button>
+        </div>
+    </div>
+    <div class="box">
+        <div>Web Back-End</div>
+    </div>
+    <div class="box">
+        <div>
+            <button class="btn">JSP</button>
+            <button class="btn">Spring</button>
+            <button class="btn">SpringBoot</button>
+        </div>
+    </div>
+    <div class="box">
+        <div>DataBase</div>
+    </div>
+    <div class="box">
+        <div>
+            <button class="btn">Oracle</button>
+            <button class="btn">MySQL</button>
+            <button class="btn">MS SQL Server</button>
+        </div>
+    </div>
+    <div class="box">
+        <div>etc</div>
+    </div>
+    <div class="box">
+        <div>
+            <button class="btn">Adobe Photoshop</button>
+            <button class="btn">Adobe Primiere Pro</button>
+            <button class="btn">Pro Tools</button>
+        </div>
+    </div>
+</body>
+</html>
