@@ -18,6 +18,13 @@
  *      filter - CommonFilter    
  *      servlet - InsertProductServlet(/product, POST)
  *              - SearcgProductServlet(/products, GET)
+ *  개발 순서
+ *  filter -> 
+ *  InsertProductServlet -> util -> dto  제이슨을 문자열로 변환 / 지슨 객체로변환 /포스트맨으로 요청 확인가능
+ *  config -> 
+ *  dao -> service -> vo / 싱글톤으로 생성
+ *  SearcgProductServlet ->
+ * 
  * 
  * DB(db_study)
  * table(product_tb)
@@ -28,31 +35,29 @@
         const productInputs = document.querySelectorAll(".product-input");
     
     const product = {
-        name: productInputs[0].value,
-        price: productInputs[1].value, 
-        size: productInputs[2].value 
+        productName: productInputs[0].value,
+        productPrice:parseInt(productInputs[1].value), 
+        productSize: productInputs[2].value 
     };
         const jsonData = JSON.stringify(product);
 
-    const option = {
+        try {
+    const response = await fetch ("http://localhost:8080/product/product",{
         method: "POST",
         Headers: {
             "Content-Type":"application/json"
         },
         body : jsonData 
-}
+    }); 
 
-    try {
-        const response = await fetch ("http://localhost:8080/product/product", option)
-        if(!response.ok) {
-            throw await response.json();
-        }
-        
-        const json = await response.json();
-        
-        console.log(json);
-    } catch {
-        console.log(error);
-        alert(error.errormessage);
+    if (!response.ok) {
+        throw await response.json();
     }
-}
+    const responseData = await response.json();
+    console.log(responseData);
+    alert(`${responseData.successCount}건의상품 추가 완료`);
+    
+        } catch(error) {
+            alert(error?.errorMessage);
+        }
+    }
